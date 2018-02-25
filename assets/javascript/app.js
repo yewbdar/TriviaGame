@@ -1,28 +1,47 @@
 $(document).ready(function () {
-
+  
     $("#form").hide();
+    $("#result").hide();
 
     var trivia = {
 
-        second: 30,
+        second:15,
         intervalId: null,
         Answer: ["1", "2", "4", "3", "1", "2", "3", "1", "4", "4"],
         questions: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
         inCorrectAnswer: 0,
         correctAnswer: 0,
         notAnswered: 0,
-        displaySecond: function () {
-            debugger;
-            this.second--;
-            $('#time').html(second);
-        },
+        submit: true,
+        // displaySecond: function () {
+        //     localVal--;
+        //     console.log(localVal);
+        //     $("#time").text(this.second);
+        
+        //     if(this.second<=0){
+        //         this.result();
+        //     }
+        // },
         getInterval: function () {
-            debugger
+            debugger;
+            var localVal = this.second;
             clearInterval(this.intervalId);
-            this.intervalId = setInterval(displaySecond, 30 * 1000)
+            
+            this.intervalId=setInterval(function(){
+                localVal--;
+                $("#time").text(localVal);
+                console.log(localVal);
+                if(localVal===0)
+                {
+                    debugger;
+                    clearInterval(this.intervalId);
+                    this.result(); 
+                    
+                }
+            }, 1000);
         },
         result: function () {
-
+            clearInterval(this.intervalId);
             for (var i = 0; i < this.questions.length; i++) {
 
                 var selectedVal = "";
@@ -31,38 +50,45 @@ $(document).ready(function () {
                     selectedVal = selected.val();
                     if (selectedVal === this.Answer[i]) {
                         this.correctAnswer++;
-                        console.log(this.correctAnswer);
 
                     }
                     else {
                         this.inCorrectAnswer++;
-                        console.log(this.inCorrectAnswer);
 
                     }
 
                 }
                 else {
                     this.notAnswered++;
-                    console.log(this.notAnswered);
 
                 }
 
             }
+
+            $('#correct-answert').text(this.correctAnswer);
+            $('#inCorrect-answer').text(this.inCorrectAnswer);
+            $('#not-answer').text(this.notAnswered);
+
+            $("#result").show();
+            $("#form").hide();
+            this.submit=false;
         },
-
-
     }
-    $('#time').html(this.second);
+    // $('#time').html(this.second);
 
     $('#start').on('click', function () {
-        debugger;
+        
         trivia.getInterval();
         $('form').show();
     })
     $('#submit').on('click', function () {
-        debugger;
-        this.result });
+        
+        if (trivia.submit) {
+            trivia.result();
 
+            
+        }
+    });
 
 
 })
