@@ -5,21 +5,21 @@ The game ends when the time runs out .And the page will reveal the number of que
 # Getting started
 
 clone repo and
-- run command in terminal.
--run index.html to get start playing game .
+* run command in terminal.
+*run index.html to get start playing game .
 
 # Technology used
--javascript ,jquery
--bootstrap 4 -https://v4-alpha.getbootstrap.com/
+*javascript ,jquery
+*bootstrap 4 -https://v4-alpha.getbootstrap.com/
 
 # Built with
--visual code
--terminal
+*visual code
+*terminal
 
 # Authors
 yewbdar girma
 
 # Acknowledgment
-All stack overflow contributer
-UT,bootcamp instractours
+*All stack overflow contributer
+*UT,bootcamp instractours
 
