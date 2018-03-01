@@ -1,6 +1,17 @@
-#time.div{
-    display: inline-block;
+
+#start{
+    width: 30%;
+    margin-top: 17%;
+    height: 100%;
 }
-span{
-    display:inline-block;
+#submit{
+    width: 30%;
+   
+    height: 30%;
+}
+input[type="radio"]{
+   padding: 3%;
+}
+button:hover{
+    background-color:rgb(53, 176, 218);
 }

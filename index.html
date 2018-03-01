@@ -1,81 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-     
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Trivia Game </title>
 </head>
+
 <body>
-             <div id="time">0:00</div>
-             <button id="start">start</button>
-             <div  id="result">
-                <p>correct Answers:</p><h4 id="correct-answer">0</h4>
-                <p>Incorrect Answers:</p><h4 id="inCorrect-answer">0</h4>
-                <p>not Answered:</p><h4 id="not-answer">0</h4>
-                 
-             </div>
-   
-   <form id="form">
-   <label>1.When a user views a page containing a JavaScript programe which 
-       machine actually executes the script? </label><br/>
-   <input type="radio" name="1" value="1"/>The User's machine running a web browser
-   <input type="radio" name="1" value="2"/>The web server
-   <input type="radio" name="1" value="3"/>A central machine deep within Netscape's corporate offices
-   <input type="radio" name="1" value="4"/>None of the above  <br/>
 
-   <label>2 .What are variables used for in JavaScript Programs? </label><br/>
-   <input type="radio" name="2" value="1"/>Storing numbers, dates, or other values
-   <input type="radio" name="2" value="2"/>Varying randomly
-   <input type="radio" name="2" value="3"/>Causing high-school algebra flashbacks
-   <input type="radio" name="2" value="4"/>None of the above <br/>
+    <div class="container">
 
-   <label>3 .What is the correct JavaScript syntax to write "Hello World"? </label><br/>
-   <input type="radio" name="3" value="1"/>System.out.println("Hello World")
-   <input type="radio" name="3" value="2"/>println ("Hello World")
-   <input type="radio" name="3" value="3"/>document.write("Hello World")
-   <input type="radio" name="3" value="4"/>response.write("Hello World") <br/>
-   <label>4 .The _______ method of an Array object adds and/or removes elements from an array. </label><br/>
-   <input type="radio" name="4" value="1"/>Reverse
-   <input type="radio" name="4" value="2"/>Shift
-   <input type="radio" name="4" value="3"/>Slice
-   <input type="radio" name="4" value="4"/>Splice <br/>
-   <label>5. Is it possible to nest functions in JavaScript?</label><br/>
-   <input type="radio" name="5" value="1"/>True
-   <input type="radio" name="5" value="2"/>False
-   <!-- <input type="radio" name="5" value="3"/>you -->
-   <!-- <input type="radio" name="5" value="4"/>me <br/> -->
-   <label>6 .What is mean by "this" keyword in javascript? </label><br/>
-   <input type="radio" name="6" value="1"/>It is variable which contains value
-   <input type="radio" name="6" value="2"/>It referes previous object
-   <input type="radio" name="6" value="3"/> It refers current object
-   <input type="radio" name="6" value="4"/>None of the above <br/>
-   <label>7 . In JavaScript, Window.prompt() method return true or false value ? </label><br/>
-   <input type="radio" name="7" value="1"/>true
-   <input type="radio" name="7" value="2"/>False
-   <!-- <input type="radio" name="7" value="3"/>you -->
-   <!-- <input type="radio" name="7" value="4"/>me <br/> -->
-   <label>8 .what is your name </label><br/>
-   <input type="radio" name="8" value="1"/>hallue
-   <input type="radio" name="8" value="2"/>hi
-   <input type="radio" name="8" value="3"/>you
-   <input type="radio" name="8" value="4"/>me <br/>
-   <label>9 .what is your name </label><br/>
-   <input type="radio" name="9" value="1"/>hallue
-   <input type="radio" name="9" value="2"/>hi
-   <input type="radio" name="9" value="3"/>you
-   <input type="radio" name="9" value="4"/>me <br/>
-   <label>10 .what is your name </label><br/>
-   <input type="radio" name="10" value="1"/>hallue
-   <input type="radio" name="10" value="2"/>hi
-   <input type="radio" name="10" value="3"/>you
-   <input type="radio" name="10" value="4"/>me <br/>
-   
-</form>
-   <button id="submit" >click</button>
-   <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+        <div class="row col-lg-8 mx-auto bg-info mt-5 p-4">
+            <div class="col-lg-3 "></div>
+            <div class="col-lg-8">
+                <div id="time" class="h1">0:00</div>
+                <div>
+                    <button id="start" class="mr-6 mt-">Start</button>
+                </div>
+                <br/>
+                <div class="row result-box">
+
+                    <h3 id="info">Result</h3>
+                </div>
+                <div class="row result-box">
+                    Correct Answers: &nbsp;
+                    <span class="font-weight-bold" id="correct-answer">0</span>
+
+                </div>
+                <div class="row result-box">
+                    Incorrect Answers:&nbsp;
+                    <span class="font-weight-bold" id="inCorrect-answer">0</span>
+
+                </div>
+                <div class="row result-box">
+                    Not Answered:&nbsp;
+                    <span class="font-weight-bold" id="not-answer">0</span>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row col-lg-8 mx-auto bg-info  p-4">
+            <label id="tittle" class="h4">Javascript and jquery questions . </label>
+            <form id="form">
+                <div id="1" class="mt-2">
+                    <label>1.When a user views a page containing a JavaScript programe which machine actually executes the script?
+                    </label>
+                    <br/>
+                    <div>
+                        <input type="radio" name="1" value="1" />The User's machine running a web browser</div>
+                    <div>
+                        <input type="radio" name="1" value="1" />The web server</div>
+                    <div>
+                        <input type="radio" name="1" value="3" />A central machine deep within Netscape's corporate offices</div>
+                    <div>
+                        <input type="radio" name="1" value="4" />None of the above</div>
+                    <br/>
+                </div>
+                <div id="2" class="mt-2">
+                    <label>2 .What are variables used for in JavaScript Programs? </label>
+                    <br/>
+                    <div>
+                        <input type="radio" name="2" value="1" />Storing numbers, dates, or other values</div>
+                    <div>
+                        <input type="radio" name="2" value="2" />Varying randomly</div>
+                    <div>
+                        <input type="radio" name="2" value="3" />Causing high-school algebra flashbacks</div>
+                    <div>
+                        <input type="radio" name="2" value="4" />None of the above</div>
+                    <br/>
+                </div>
+                <div id="3" class="mt-2">
+                    <label>3 .What is the correct JavaScript syntax to write "Hello World"? </label>
+                    <br/>
+                    <div>
+                        <input type="radio" name="3" value="1" />System.out.println("Hello World")</div>
+                    <div>
+                        <input type="radio" name="3" value="2" />println ("Hello World")</div>
+                    <div>
+                        <input type="radio" name="3" value="3" />document.write("Hello World")</div>
+                    <div>
+                        <input type="radio" name="3" value="4" />response.write("Hello World")</div>
+                    <br/>
+                </div>
+                <div id="4" class="mt-2">
+                    <label>4 .The _______ method of an Array object adds and/or removes elements from an array. </label>
+                    <br/>
+                    <div>
+                        <input type="radio" name="4" value="1" />Reverse</div>
+                    <div>
+                        <input type="radio" name="4" value="2" />Shift</div>
+                    <div>
+                        <input type="radio" name="4" value="3" />Slice</div>
+                    <div>
+                        <input type="radio" name="4" value="4" />Splice</div>
+                    <br/>
+                </div>
+                <div id="5">
+                    <label>5. Is it possible to nest functions in JavaScript?</label>
+                    <br/>
+                    <div>
+                        <input type="radio" name="5" value="1" />True</div>
+                    <div>
+                        <input type="radio" name="5" value="2" />False</div>
+                   
+                </div>
+                <div id="6">
+                    <label>6 .What is mean by "this" keyword in javascript? </label>
+                    <br/>
+                    <div>
+                        <input type="radio" name="6" value="1" />It is variable which contains value</div>
+                    <div>
+                        <input type="radio" name="6" value="2" />It referes previous object</div>
+                    <div>
+                        <input type="radio" name="6" value="3" /> It refers current object</div>
+                    <div>
+                        <input type="radio" name="6" value="4" />None of the above</div>
+                    <br/>
+                </div>
+                <div id="7">
+                    <label>7 . In JavaScript, Window.prompt() method return true or false value ? </label>
+                    <br/>
+                    <div>
+                        <input type="radio" name="7" value="1" />true</div>
+                    <div>
+                        <input type="radio" name="7" value="2" />False</div>
+                    
+                </div>
+                <div id="8">
+                    <label>8 .jQuery is a </label>
+                    <br/>
+                    <div>
+                        <input type="radio" name="8" value="1" />JavaScript Library</div>
+                    <div>
+                        <input type="radio" name="8" value="2" />JavaScript Language </div>
+                    <div>
+                        <input type="radio" name="8" value="3" />JavaScript Method</div>
+                    <div>
+                        <input type="radio" name="8" value="4" />PHP Method</div>
+                    <br/>
+                </div>
+                <div id="9">
+                    <label>9 .What is the correct jQuery code to set the background color of all p elements to red? </label>
+                    <br/>
+                    <div>
+                        <input type="radio" name="9" value="1" />$("p").layout("background-color","red");</div>
+                    <div>
+                        <input type="radio" name="9" value="2" />$("p").manipulate("background-color","red");</div>
+                    <div>
+                        <input type="radio" name="9" value="3" />$("p").css("background-color","red");</div>
+                    <div>
+                        <input type="radio" name="9" value="4" />$("p").style("background-color","red");</div>
+                    <br/>
+                </div>
+                <div id="10">
+                    <label>10 .What is the correct jQuery code for making all div elements 100 pixels high? </label>
+                    <br/>
+                    <div>
+                        <input type="radio" name="10" value="1" />$("div").height="100"</div>
+                    <div>
+                        <input type="radio" name="10" value="2" />$("div").height(100)</div>
+                    <div>
+                        <input type="radio" name="10" value="3" />$("div").yPos(100)</div>
+                    <div>
+                        <input type="radio" name="10" value="4" />$("div").css(100)</div>
+                    <br/>
+                </div>
+
+            </form>
+            <button id="submit">Done!!</button>
+        </div>
+    </div>
+    </div>
+
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
+
 </html>

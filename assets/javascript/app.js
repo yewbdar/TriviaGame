@@ -1,20 +1,26 @@
 $(document).ready(function () {
 
     $("#form").hide();
-    $("#result").hide();
-
+    $(".result-box").hide();
+    $('#submit').hide();
+    $("#time").hide();
+    $("#tittle").hide();
     var trivia = {
 
-        second: 10,
+        second: 16,
         intervalId: null,
-        Answer: ["1", "1", "3", "4", "1", "3", "2", "1", "4", "4"],
+        Answer: ["1", "1", "3", "4", "1", "3", "2", "1", "3", "2"],
         questions: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
         inCorrectAnswer: 0,
         correctAnswer: 0,
         notAnswered: 0,
-        submit: true,
+        submit: false,
         
+
         getResult: function () {
+            $('#submit').hide();
+            $("#time").hide();
+            $("#tittle").hide();
             debugger;
             clearInterval(this.intervalId);
             for (var i = 0; i < this.questions.length; i++) {
@@ -31,17 +37,24 @@ $(document).ready(function () {
                 }
                 else {
                     this.notAnswered++;
+                    
+                }
+                if(!this.submit){
+                    $("#info").text("Times Up");
                 }
             }
             $('#correct-answer').text(this.correctAnswer);
             $('#inCorrect-answer').text(this.inCorrectAnswer);
             $('#not-answer').text(this.notAnswered);
-            $("#result").show();
+            $(".result-box").show();
             $("#form").hide();
             this.submit = false;
         },
     }
     function startInteral() {
+        $('#start').hide();
+        $("#time").show();
+        $("#tittle").show();
         clearInterval(trivia.intervalId);
         trivia.intervalId = setInterval(displaySecond, 1000);
     }
@@ -53,16 +66,18 @@ $(document).ready(function () {
 
         if (trivia.second === 0) {
             trivia.getResult();
+            
         }
     }
     $('#start').on('click', function () {
          startInteral();
         $('form').show();
+        $('#submit').show();
     })
     $('#submit').on('click', function () {
-        if (trivia.submit) {
+        trivia.submit=true;
             trivia.getResult();
-        }
+        
     })
 })
 
